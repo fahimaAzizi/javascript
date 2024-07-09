@@ -256,7 +256,7 @@ const titleInput = document.getElementById("title-input");
 const dateInput = document.getElementById("date-input");
 const descriptionInput = document.getElementById("description-input");
 
-const taskData = [];
+const taskData = JSON.parse(localStorage.getItem("data")) || [];
 let currentTask = {};
 
 const addOrUpdateTask = () => {
@@ -274,6 +274,7 @@ const addOrUpdateTask = () => {
     taskData[dataArrIndex] = taskObj;
   }
 
+  localStorage.setItem("data", JSON.stringify(taskData));
   updateTaskContainer()
   reset()
 };
@@ -304,6 +305,7 @@ const deleteTask = (buttonEl) => {
 
   buttonEl.parentElement.remove();
   taskData.splice(dataArrIndex, 1);
+  localStorage.setItem("data", JSON.stringify(taskData));
 }
 
 const editTask = (buttonEl) => {
@@ -323,11 +325,16 @@ const editTask = (buttonEl) => {
 }
 
 const reset = () => {
+
   titleInput.value = "";
   dateInput.value = "";
   descriptionInput.value = "";
   taskForm.classList.toggle("hidden");
   currentTask = {};
+}
+
+if (taskData.length) {
+  updateTaskContainer();
 }
 
 openTaskFormBtn.addEventListener("click", () =>
@@ -357,19 +364,6 @@ taskForm.addEventListener("submit", (e) => {
 
   addOrUpdateTask();
 });
-
-const myTaskArr = [
-  { task: "Walk the Dog", date: "22-04-2022" },
-  { task: "Read some books", date: "02-11-2023" },
-  { task: "Watch football", date: "10-08-2021" },
-];
-
-localStorage.setItem("data", JSON.stringify(myTaskArr));
-
-
-
-const getTaskArr = localStorage.getItem("data")
-console.log(getTaskArr)
 
 const getTaskArrObj = JSON.parse(localStorage.getItem("data"));
 console.log(getTaskArrObj);
