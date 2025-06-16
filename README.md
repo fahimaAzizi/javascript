@@ -62,30 +62,7 @@ Feel free to modify the code or add your own examples to practice what you’ve 
 
 ## 🤝 Contributing
 
-Contributions are welcome! To contribute:
 
-1. **Fork this repository**
-2. **Create a new branch:**
-
-```bash
-git checkout -b feature-name
-```
-
-3. **Commit your changes:**
-
-```bash
-git commit -m 'Add new feature'
-```
-
-4. **Push to the branch:**
-
-```bash
-git push origin feature-name
-```
-
-5. **Create a Pull Request**
-
-## 📄 License
 
 This project is licensed under the **MIT License** — feel free to use, modify, and distribute it.
 
