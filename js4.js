@@ -229,4 +229,31 @@ dateOptionsSelectElement.addEventListener("change", () => {
     console.log("It's the weekend!");
   }
 });
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<js>>>>>>>>>>>>>>>>>>>>>>
+  // chat.js
+const { OpenAI } = require("openai");
+
+// Initialize with your API Key
+const openai = new OpenAI({
+  apiKey: "YOUR_OPENAI_API_KEY", // Replace with your key
+});
+
+async function sendMessageToChatGPT(message) {
+  try {
+    const chatCompletion = await openai.chat.completions.create({
+      model: "gpt-3.5-turbo", // or "gpt-4" if available
+      messages: [
+        { role: "user", content: message }
+      ],
+    });
+
+    console.log("AI Reply:", chatCompletion.choices[0].message.content);
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+// Example usage
+sendMessageToChatGPT("Hello! How are you?");
+
 
